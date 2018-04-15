@@ -1,0 +1,35 @@
+//- Icons
+mixin icn(fa, name)
+	span.icon
+		i(class=fa class=name aria-hidden="true")
+
+//- Mixin para tablas
+mixin row-head(...items)
+	tr
+		each val in items
+			th= val
+		if block
+			th
+				block
+
+mixin row(...items)
+	tr
+		each val in items
+			td= val
+		if block
+			td
+				block
+
+//- Use: +paginator
+mixin paginator
+	.block-paginator
+		.pagination
+			ul
+				li.pag-prev: a(href="#") Anterior
+				li: a(href="#"): span 1
+				li: a(href="#"): span 2
+				li.active: a(href="#"): span 3
+				li.dots: a(href="#") ...
+				li: a(href="#"): span 16
+				li: a(href="#"): span 17
+				li.pag-next: a(href="") Siguiente

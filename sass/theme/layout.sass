@@ -1,0 +1,29 @@
+.wrapper
+    background: #e9f7f6 url('../images/bg-wrapper-login.jpg') center bottom no-repeat
+    display: block
+    height: 100vh
+
+.wrapper-login
+    padding: 3% 0
+    max-width: 360px
+    margin: 0 auto
+
+    .box--expand
+        border-bottom: 5px solid $primary
+
+    +mobile
+        padding: 15px 0
+
+    &.is-medium
+        max-width: 480px
+    
+    &.is-large
+        max-width: 680px
+
+    .sidebar-login
+        margin: -25px -50px -25px 25px
+        background: url('../images/bg-login-side.jpg') no-repeat center right
+        background-size: auto 100%
+        
+        .head-space
+            padding-top: 90%

@@ -1,0 +1,58 @@
+include ./utils/_vars.pug
+
+doctype html
+html(lang='es')
+	head
+		title= _TITLE
+		include ./includes/_head.pug
+
+	body(ng-app="main" ng-strict-di)
+		include ./includes/ie.alert.pug
+		div.view(ui-view)
+			.loading
+				img(src="assets/images/loading.svg", alt="")
+	
+		//-  External resources
+		//- script(src='//ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js')
+		//- script(src='//momentjs.com/downloads/moment.min.js')
+		script(defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous")
+
+		//- Library
+		script(src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js")
+		//- script(src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-messages.min.js")
+		//- script(src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.min.js")
+		//- script(src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-aria.min.js")
+		script(src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-resource.min.js")
+		script(src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-touch.min.js")
+		script(src="//cdnjs.cloudflare.com/ajax/libs/ngMask/3.1.1/ngMask.min.js")
+		script(src="//unpkg.com/@uirouter/angularjs@1.0.7/release/angular-ui-router.min.js")
+		script(src="//cdnjs.cloudflare.com/ajax/libs/angular-block-ui/0.2.2/angular-block-ui.min.js")
+		script(src="//cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.11/ngStorage.min.js")
+
+		//- Local resources
+		//- script(src="assets/js/plugins/components.js")
+		//- script(src="assets/js/plugins/ui-bootstrap-2.4.0.min.js")
+		script(src='assets/js/polygon.js')
+
+		//-
+		//- PARA DESARROLLO
+		//-
+		//- Modules
+		script(src="app/app.controllers.js?v=" + _VERSION)
+		script(src="app/app.factory.js?v=" + _VERSION)
+		script(src="app/app.directives.js?v=" + _VERSION)
+		script(src="app/app.filters.js?v=" + _VERSION)
+		script(src="app/app.route.js?v=" + _VERSION)
+
+		//- components
+		script(src="app/controllers/home.js?v=" + _VERSION)
+
+
+		//- App
+		script(src="app/app.js?v=" + _VERSION)
+
+		//-
+		//- PARA PRODUCCIÓN
+		//-
+		//- Angularj Scripts
+		//-script(src="app/app-project.min.js?v=" + _VERSION)

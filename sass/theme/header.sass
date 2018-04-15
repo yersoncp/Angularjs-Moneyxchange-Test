@@ -1,0 +1,61 @@
+
+// Header
+
+.header-top
+    background: $primary
+    // background: $grey-light
+    color: $white
+    padding: 8px 0
+
+    .dropdown-trigger
+        span
+            vertical-align: middle
+        a
+            color: $white
+
+header
+    background: $white
+    box-shadow: 0px 2px 5px rgba(0,0,0,.1)
+    margin-bottom: 20px
+
+.logo
+    margin: 5px 0
+    img
+        width: 180px
+
+.mainmenu
+    li
+        display: inline-block
+        vertical-align: middle
+    
+    li.item
+        a
+            padding: 20px 15px
+            display: block
+            border-bottom: 3px solid #fff
+
+            img, span
+                display: inline-block
+                vertical-align: middle
+            
+            img
+                width: 32px
+                filter: grayscale(1)
+                opacity: .75
+                margin-right: 8px
+            
+            span
+                text-transform: uppercase
+                font-weight: 500
+                color: $grey-light
+
+            &.active, &:hover
+                border-bottom: 3px solid $primary
+                img
+                    filter: grayscale(0)
+                    opacity: 1
+                
+                span
+                    color: $primary
+
+            

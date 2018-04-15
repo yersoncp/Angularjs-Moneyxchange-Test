@@ -1,0 +1,160 @@
+.modal-open
+	overflow: hidden
+
+.modal
+	position: fixed
+	top: 0
+	right: 0
+	bottom: 0
+	left: 0
+	z-index: 1050
+	display: none
+	//overflow: hidden
+	overflow: auto
+	-webkit-overflow-scrolling: touch
+	outline: 0
+	width: 100%
+	height: 100%
+
+	&.fade .modal-dialog
+		-webkit-transition: -webkit-transform .3s ease-out
+		-o-transition: -o-transform .3s ease-out
+		transition: transform .3s ease-out
+		-webkit-transform: translate(0, -25%)
+		-ms-transform: translate(0, -25%)
+		-o-transform: translate(0, -25%)
+		transform: translate(0, -25%)
+	&.in .modal-dialog
+		-webkit-transform: translate(0, 0)
+		-ms-transform: translate(0, 0)
+		-o-transform: translate(0, 0)
+		transform: translate(0, 0)
+
+
+.modal-dialog
+	position: relative
+	margin: 0 auto
+	top: 10%
+	width: 600px
+
+.modal-lg
+	position: relative
+	width: 900px
+	margin: auto
+	top: 10%
+
+.modal-sm
+	position: relative
+	width: 460px
+	margin: auto
+	top: 10%
+
+
+.modal-content
+	position: relative
+	background-color: #fff
+	-webkit-background-clip: padding-box
+	background-clip: padding-box
+	border: 1px solid #999
+	border: 1px solid rgba(0, 0, 0, 0.2)
+	border-radius: 4px
+	outline: 0
+	-webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.2)
+	box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5)
+
+.modal-backdrop
+	position: fixed
+	top: 0
+	right: 0
+	bottom: 0
+	left: 0
+	z-index: 1040
+	background-color: #123
+	&.fade
+		filter: alpha(opacity = 0)
+		opacity: 0
+	&.in
+		filter: alpha(opacity = 35)
+		opacity: .35
+.modal-header
+	padding: 5px 20px
+	background: $white
+	border-bottom: 1px solid #eee
+	margin-bottom: 10px
+	.close
+		padding: 0
+		float: right
+		color: $primary
+		line-height: 3rem;
+
+		span
+			font-size: 32px
+	h2, h3
+		color: $primary
+		font-weight: 400
+		font-size: 17px
+		margin: 8px 0
+
+.modal-danger
+	.modal-header
+		padding: 2px 25px
+		background: #fd4a4a
+		.close
+			padding: 10px 0px 0px
+			float: right
+			color: #fff
+			opacity: .8
+
+			&:hover
+				opacity: 1
+
+			span
+				font-size: 32px
+		h2, h3
+			color: #fff
+			margin: 12px 0
+
+.modal-title
+	margin: 0
+	line-height: 1.42857143
+	font-weight: 700
+	font-size: 16px
+
+.modal-body
+	position: relative
+	padding: 10px 25px 20px 25px
+
+.modal-footer
+	padding: 0 15px 30px 15px
+	text-align: center
+	.btn + .btn
+		margin-bottom: 0
+		margin-left: 5px
+	.btn-group .btn + .btn
+		margin-left: -1px
+	.btn-block + .btn-block
+		margin-left: 0
+
+.modal-scrollbar-measure
+	position: absolute
+	top: -9999px
+	width: 50px
+	height: 50px
+	overflow: scroll
+
+@media (min-width: 768px)
+	.modal-dialog
+		// width: 420px
+		margin: 0 auto
+	.modal-content
+		-webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2)
+		box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2)
+		border: 0
+
+@media (max-width: 960px)
+	.modal-lg
+		width: 98%
+
+@media (max-width: 620px)
+	.modal-dialog
+		width: 96%
