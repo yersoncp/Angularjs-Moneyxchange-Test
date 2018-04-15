@@ -1,57 +1,11 @@
 extends ./@view.pug
 block content
-	
-	.header-top
-		.container
-			.level
-				.level-left
-					p
-						|Atención de 8:00am a 8:00pm. Emergencias:
-						b (064) 247 087
-				
-				.level-right
-					.dropdown.is-right.is-hoverable
-						.dropdown-trigger
-							a.link(aria-haspopup="true" aria-controls="dropdown-menu")
-								+icn('far', 'fa-user-circle')
-								span Hugo Dominguez
-								+icn('fas', 'fa-angle-down')
-						.dropdown-menu#dropdown-menu(role="menu")
-							.dropdown-content
-								a.dropdown-item
-									+icn('fas', 'fa-cog')
-									span Configuración
-								a.dropdown-item
-									+icn('far', 'fa-user-circle')
-									span Editar mis datos
-								hr.dropdown-divider
-								a.dropdown-item(ui-sref="login")
-									+icn('fas', 'fa-sign-out-alt')
-									span Cerrar sesión
 
+	.pg-progress(ng-show="vm.spinner"): .indeterminate
 	header
 		.container
-			.level
-				.level-left
-					.logo
-						h1: a(ui-sref="dashboard"): img(src= IMG + "logo-180.png", alt="")
+			.column.has-text-centered
+				.logo.head-space.is-small
+					h1: a(ui-sref="dashboard"): img(src= IMG + "logo.png", alt="")
+	
 				
-				.level-right
-					ul.mainmenu
-						li.item.has-text-centered: a(ui-sref="dashboard" ui-sref-active="active")
-							img(src= IMG + "icn-nav-home.png", alt="")
-							span Inicio
-						li.item.has-text-centered: a(ui-sref="citas" ui-sref-active="active")
-							img(src= IMG + "icn-nav-citas.png", alt="")
-							span Citas
-						li.item.has-text-centered: a(ui-sref="pagos" ui-sref-active="active")
-							img(src= IMG + "icn-nav-pagos.png", alt="")
-							span Pagos
-						li.item.has-text-centered: a(ui-sref="medicos" ui-sref-active="active")
-							img(src= IMG + "icn-nav-medicos.png", alt="")
-							span Médicos
-						li.has-text-centered: a.button.is-danger.is-rounded
-							+icn('far', 'fa-calendar-check')
-							span Agendar cita
-					
-	.progress-container: md-progress-linear(md-mode="indeterminate")

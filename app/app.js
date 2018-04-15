@@ -21,6 +21,7 @@
       'ngStorage',
       'ngMask',
       // 'ui.bootstrap',
+      'angular-cache',
       'blockUI',
     ])
 

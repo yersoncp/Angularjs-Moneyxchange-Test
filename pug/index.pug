@@ -13,7 +13,7 @@ html(lang='es')
 				img(src="assets/images/loading.svg", alt="")
 	
 		//-  External resources
-		//- script(src='//ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js')
+		script(src='//ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js')
 		//- script(src='//momentjs.com/downloads/moment.min.js')
 		script(defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous")
 
@@ -28,6 +28,7 @@ html(lang='es')
 		script(src="//unpkg.com/@uirouter/angularjs@1.0.7/release/angular-ui-router.min.js")
 		script(src="//cdnjs.cloudflare.com/ajax/libs/angular-block-ui/0.2.2/angular-block-ui.min.js")
 		script(src="//cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.11/ngStorage.min.js")
+		script(src="assets/js/angular-cache.min.js")
 
 		//- Local resources
 		//- script(src="assets/js/plugins/components.js")
@@ -45,7 +46,8 @@ html(lang='es')
 		script(src="app/app.route.js?v=" + _VERSION)
 
 		//- components
-		script(src="app/controllers/home.js?v=" + _VERSION)
+		script(src="app/home/home.controller.js?v=" + _VERSION)
+		script(src="app/home/home.service.js?v=" + _VERSION)
 
 
 		//- App

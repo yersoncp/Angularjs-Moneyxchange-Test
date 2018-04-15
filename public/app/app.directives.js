@@ -12,6 +12,7 @@ angular
 	.directive('enter', enter)
 	.directive('currency', currency)
 	.directive('capsLock', capsLock)
+	.directive('decimalPlaces', decimalPlaces)
 
 	function uppercase() {
 	    return {
@@ -66,15 +67,17 @@ angular
 	}
 
 	function currency($filter) {
-        function link(scope, el, attrs, ngModelCtrl) {
+    function link(scope, el, attrs, ngModelCtrl) {
 
-            var symbol = function(){
-	            if(attrs.currency.toString() === 'PEN'){
-	            	return 'S/'
-	            } else if(attrs.currency.toString() === 'USD'){
-	            	return '$'
-	            }
-            }
+				var symbol = function(){
+					if(attrs.currency.toString() === 'PEN'){
+						return 'S/'
+					} else if(attrs.currency.toString() === 'USD'){
+						return '$'
+					} else if (attrs.currency.toString() === 'EUR') {
+						return '€'
+					}
+				}
 
 			var formatNumber = function(value) {
 				value = value.toString();
@@ -101,7 +104,7 @@ angular
 				}
 			};
 
-            el.bind('keyup', function(e) {
+          el.bind('keyup', function(e) {
 		        var keycode = e.keyCode;
 		        var isTextInputKey =
 		          (keycode > 47 && keycode < 58) || // number keys
@@ -147,7 +150,7 @@ angular
         };
     }
 
-    function capsLock($document, $log, capslockService) {
+  function capsLock($document, $log, capslockService) {
 	    var directive = {
 	      restrict: 'A',
 	      link: function(scope, el, attrs) {
@@ -189,6 +192,20 @@ angular
 	      }
 	    };
 	    return directive;
+	};
+
+	function decimalPlaces() {
+		return {
+			link: function (scope, ele, attrs) {
+				ele.bind('keypress', function (e) {
+					var newVal = $(this).val() + (e.charCode !== 0 ? String.fromCharCode(e.charCode) : '');
+					if ($(this).val().search(/(.*)\.[0-9][0-9][0-9][0-9]/) === 0 && newVal.length > $(this).val().length) {
+						e.preventDefault();
+					}
+				});
+			}
+		};
+
 	};
 
  })();

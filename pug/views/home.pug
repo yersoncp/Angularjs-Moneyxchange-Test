@@ -3,62 +3,40 @@ block content
 
 	div(ng-include="'views/header.html'")
 
-	.container
-		.columns
-			.column
-				.box.box--bg.box--expand
-					.welcome.content
-						.columns
-							.column.is-5
-								.head-space.is-small.welcome-head
-									h2.yr-head Bienvenido
-									h2.yr-subhead Javier Pérez 
-							.column.is-7
-								.columns
-									.column.has-text-centered
-										h2.has-text-primary ¿Qué desea hacer hoy?
-								.columns.welcome-started
-									.column.has-text-centered
-										img(src= IMG + "icn-dashboard-addcita.png", alt="")
-										p Agende una cita ahora mismo sin esperas
-										a.button.is-primary
-											+icn('far', 'fa-calendar-check')
-											span Agendar cita
-									.column.has-text-centered
-										img(src= IMG + "icn-dashboard-mispagos.png", alt="")
-										p Al parecer tienes pagos pendientes
-										a.button.is-primary.badge.is-badge-danger.is-badge-medium(data-badge="2")
-											+icn('far', 'fa-money-bill-alt')
-											span Pagar ahora
-									.column.has-text-centered
-										img(src= IMG + "icn-dashboard-miscitas.png", alt="")
-										p Tiene citas agendadas con tu médico
-										a.button.is-primary
-											+icn('fas', 'fa-check')
-											span Ver citas
-		.columns
-			.column: .box.has-text-centered
-				.head-space.is-small
-					.heading Peso
-					.title.has-text-primary.has-text-weight-normal 45kg
-			.column: .box.has-text-centered
-				.head-space.is-small
-					.heading Altura
-					.title.has-text-primary.has-text-weight-normal 1.75m
-			
-			.column: .box.has-text-centered
-				.head-space.is-small
-					.heading Tipo de sangre
-					.title.has-text-primary.has-text-weight-normal O+
-			
-			.column: .box.has-text-centered
-				.head-space.is-small
-					.heading Edad
-					.title.has-text-primary.has-text-weight-normal 19 años
-			
-			.column: .box.has-text-centered
-				.head-space.is-small
-					.heading Sexo
-					.title.has-text-primary.has-text-weight-normal M
+	section.exchange
+		.container: .head-space.is-large
+			.columns
+				.column.is-8.is-offset-2.is-12-mobile.is-offset-0-mobile
+					.is-large.has-text-centered
+						h2.has-text-white.is-size-3.has-text-weight-light Cotiza el tipo de cambio
+			.columns
+				.column.is-8.is-offset-2.is-12-mobile.is-offset-0-mobile
+					.columns
+						.column.is-6
 
-		div(ng-include="'views/footer.html'")
+							.field
+								label.label.has-text-white.is-size-4.has-text-weight-light USD:
+
+							.field.has-addons
+								.control
+									span.select.is-size-4
+										select
+											option $
+								.control.is-expanded.is-large(ng-class="{'is-loading': vm.spinner}")
+									input.input.is-size-4(type="number" placeholder="0.00" ng-model='vm.valueUSD' required decimal-places step="0.0001")
+
+						.column.is-6
+
+							.field
+								label.label.has-text-white.is-size-4.has-text-weight-light EUR:
+
+							.field
+								input.input.is-size-4(placeholder="€0.00" type="text" value="{{vm.valueEUR | currency:'€':4}}" disabled)
+				
+					.field
+						.control: a.button.is-info.is-medium.is-fullwidth(ng-click="vm.calculate(vm.valueUSD)")
+							+icn('far', 'fa-check-circle')
+							span Calcular
+							
+
+	div(ng-include="'views/footer.html'")

@@ -9,7 +9,6 @@
 	contanex.$inject = ["$q", "$kinvey"];
 	focus.$inject = ["$timeout", "$window"];
 	msgflash.$inject = ["$rootScope"];
-	jsonData.$inject = ["$http", "blockUI"];
 	capslockService.$inject = ["$rootScope", "$document", "$log"];
 	sfUtil.$inject = ["$filter"];
 	angular
@@ -19,7 +18,6 @@
 	.factory('focus', focus)
 	.factory('msgflash', msgflash)
 	.factory('sharedata', sharedata)
-	.factory('jsonData', jsonData)
    .factory('capslockService', capslockService)
 	.factory('sfUtil', sfUtil)
 
@@ -165,63 +163,6 @@
 		return {
 			data: {}
 		};
-	}
-
-	function jsonData($http, blockUI) {
-		return{
-
-			/*
-			TABLA CATEGORÍAS
-			*/
-			getCategoria: function(id) {
-				return $http.get("app/data/demo.json")
-				.then(function(response) {
-					if (id) {
-						var _result = {};
-						var _data = response.data;
-
-						for (var i = 0; i < _data.length; ++i) {
-							if (_data[i].codigo == id) {
-								_result= _data[i];
-								break;
-							}
-						}
-						return _result;
-					} else{
-						return response.data;
-					}
-				}, function(err) {
-					console.log(err);
-				});
-			},
-
-			/*
-			TABLA 10
-			*/
-			getTipoComprobante: function(id) {
-				return $http.get("app/data/data_tributacion/t10_tipo_comprobante.json")
-				.then(function(response) {
-					if (id) {
-						var _result = {};
-						var _data = response.data;
-
-						for (var i = 0; i < _data.length; ++i) {
-							if (_data[i].codigo == id) {
-								_result= _data[i];
-								break;
-							}
-						}
-						return _result;
-					} else{
-						return response.data;
-					}
-				}, function(err) {
-					console.log(err);
-				});
-			}
-
-
-		} //END
 	}
 
 	function capslockService($rootScope, $document, $log) {
