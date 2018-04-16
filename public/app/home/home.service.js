@@ -1,17 +1,13 @@
-/**
- * Factory personalizados
- * @namespace app.factory
- */
-
 (function () {
     'use strict';
 
-    xchange.$inject = ["$q", "$http", "CacheFactory"];
+    XchangeService.$inject = ["$q", "$http", "CacheFactory"];
     angular
-        .module('app.factory')
-        .service('xchange', xchange)
+        .module('app.services')
+        .service('XchangeService', XchangeService)
+        .service('HelloService', HelloService)
     
-    function xchange($q, $http, CacheFactory) {
+    function XchangeService($q, $http, CacheFactory) {
 
         CacheFactory('dataCache', {
             maxAge: 10 * 60 * 1000, // Items added to this cache expire after 15 minutes
@@ -20,29 +16,44 @@
         });
 
         return {
-			/*
-			*/
-            getRatio: function () {
-
-                var deferred = $q.defer();
-                var start = new Date().getTime();
-                var dataCache = CacheFactory.get('dataCache');
-
-                if (dataCache.get('data')) {
-                    console.log('Data from cache!!');
-                    deferred.resolve(dataCache.get('data'));
-                } else {
-                    $http.get('http://api.fixer.io/latest?base=USD&symbols=EUR').then(function (response) {
-                        console.log('Time taken for request: ' + (new Date().getTime() - start) + 'ms!!');
-                        dataCache.put('data', response.data);
-                        deferred.resolve(response.data);
-                    });
-                }
-                return deferred.promise;
-                   
-            },
+            getRatio: getRatio,
 
         } //END
+
+        function getRatio() {
+
+            var deferred = $q.defer();
+            var start = new Date().getTime();
+            var dataCache = CacheFactory.get('dataCache');
+
+            if (dataCache.get('data')) {
+                console.log('Data from cache!!');
+                deferred.resolve(dataCache.get('data'));
+            } else {
+                $http.get('http://api.fixer.io/latest?base=USD&symbols=EUR').then(function (response) {
+                    console.log('Time taken for request: ' + (new Date().getTime() - start) + 'ms!!');
+                    dataCache.put('data', response.data);
+                    deferred.resolve(response.data);
+                });
+            }
+            return deferred.promise;
+
+        }
+    }
+
+
+    function HelloService() {
+
+        return {
+            getHello: getHello,
+
+        } //END
+
+        function getHello() {
+
+            return 'Hola';
+
+        }
     }
 
 

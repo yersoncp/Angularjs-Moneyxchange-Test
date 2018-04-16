@@ -13,7 +13,7 @@
 			.state('home', {
 			  url: '/',
 			  templateUrl: 'views/home.html',
-			  controller: 'home',
+			  controller: 'homeCtrl',
 			  controllerAs: 'vm'
 			})
 

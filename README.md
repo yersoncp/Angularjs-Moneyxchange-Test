@@ -4,7 +4,6 @@
 * Jasmin & Karma
 * Bulma CSS
 * Sass
-* [NgMask](http://candreoliveira.github.io/bower_components/angular-mask/examples/index.html#/) 
 
 ## Run
 

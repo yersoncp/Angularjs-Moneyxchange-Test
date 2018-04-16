@@ -11,18 +11,18 @@
     .module('main', [
       'app.controllers',
       'app.directives',
-      'app.factory',
+      'app.services',
       'app.filters',
       'app.route',
       // 'ngMessages',
       // 'ngAnimate',
       // 'ngAria',
       'ngResource',
-      'ngStorage',
-      'ngMask',
+      // 'ngStorage',
+      // 'ngMask',
       // 'ui.bootstrap',
       'angular-cache',
-      'blockUI',
+      // 'blockUI',
     ])
 
 })();
