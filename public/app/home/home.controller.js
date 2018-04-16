@@ -12,7 +12,13 @@
 		var vm = this;
 
 		vm.calculate = function(valueUSD){
+
+			// vm.valueUSD = $filter('currency')(valueUSD, '', 4);
 			vm.spinner = true;
+			if (!valueUSD) {
+				vm.spinner = false;
+				return false;
+			}
 			XchangeService.getRatio().then(function (response) {
 				console.log(response);
 				vm.valueEUR = valueUSD * response.rates.EUR;

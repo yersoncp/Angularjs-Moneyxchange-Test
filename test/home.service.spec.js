@@ -1,49 +1,3 @@
-// 'use strict';
-
-// describe('Xchange Service', function () {
-
-//     beforeEach(function () {
-//         module('app.services');
-//     });
-
-//     describe('Xchange service', function () {
-
-//         var XchangeService;
-
-//         beforeEach(
-//             inject(function(_XchangeService_, $q, $http, CacheFactory) {
-//                 XchangeService = _XchangeService_;
-
-//                 // spyOn(xchangeService, "getRatio").and.callFake(function () {
-//                 //     var deferred = $q.defer();
-//                 //     deferred.resolve('Remote call result');
-//                 //     return deferred.promise;
-//                 // });
-
-//             })
-//         );
-
-//         // it('debeo retornas valores de conversion', function () {
-//         //     var data = xchangeService.getRatio();
-//         //     console.log(data);
-//         //     expect(data).toBeDefined();
-//         //     expect(data.length).toBe(2);
-//         // });
-
-//         it('deseo retornar valores de la conversión', inject(function () {
-//             XchangeService.getRatio()
-//                 .then(function (response) {
-//                     console.log(response);
-//                     console.log('Success');
-//                 });
-//         }));
-
-
-//     });
-// });
-
-
-
 'use strict';
 
 describe('Modulo app.cars', function () {
@@ -52,22 +6,22 @@ describe('Modulo app.cars', function () {
         module('app.services');
     });
 
-    describe('Cars service', function () {
+    describe('Hello service', function () {
 
-        var carsService;
+        var helloService;
 
         beforeEach(function () {
             inject(['HelloService', function (service) {
-                carsService = service;
-            }
-            ]);
+                helloService = service;
+            }]);
         });
 
-        it('debe devolver una lista de dos coches', function () {
-            var cars = carsService.getHello();
+        it('debe devolver una mensaje de Hola', function () {
+            var cars = helloService.getHello();
             console.log(cars);
-            // expect(cars).toBeDefined();
-            // expect(cars.length).toBe(2);
+            expect(cars).toBeDefined();
+            expect(cars).toBe('Hola');
         });
     });
+   
 });

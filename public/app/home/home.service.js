@@ -17,7 +17,6 @@
 
         return {
             getRatio: getRatio,
-
         } //END
 
         function getRatio() {
@@ -41,18 +40,13 @@
         }
     }
 
-
     function HelloService() {
-
         return {
             getHello: getHello,
-
         } //END
 
         function getHello() {
-
             return 'Hola';
-
         }
     }
 

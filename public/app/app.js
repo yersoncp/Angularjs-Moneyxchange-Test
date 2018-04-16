@@ -23,6 +23,8 @@
       // 'ui.bootstrap',
       'angular-cache',
       // 'blockUI',
-    ])
+    ]).config(["CacheFactoryProvider", function (CacheFactoryProvider) {
+      angular.extend(CacheFactoryProvider.defaults, { maxAge: 10 * 60 * 1000 });
+    }])
 
 })();
