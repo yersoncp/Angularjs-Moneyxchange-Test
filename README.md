@@ -11,5 +11,5 @@
 npm install -g gulp-cli
 npm install -g karma
 gulp serve
-npm test
+// npm test
 ```
